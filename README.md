@@ -24,8 +24,8 @@ You can find **all project data, resources, and usage instructions** by visiting
 
 ## 👤 About
 
-**Name:** Pitani Madhusayi Krishna Maheshwara Prakash Rao (B.Tech)  
-**Email:** madhusaipitani95@gmail.com  
+**Name:**  Usha Pithani (B.Tech) 
+**Email:** pithaniusha73@gmail.com
 **LinkedIn:** [https://www.linkedin.com/in/pitanimadhusayi/](https://www.linkedin.com/in/pitanimadhusayi/)
 
 Give it a try and start recognizing your world today! ✌️
