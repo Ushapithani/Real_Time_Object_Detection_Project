@@ -28,7 +28,7 @@ You can find **all project data, resources, and usage instructions** by visiting
 
 **Email:** pithaniusha73@gmail.com
 
-**LinkedIn:** 
+**LinkedIn:** https://www.linkedin.com/in/usha-pithani-8298b4292 
 
 Give it a try and start recognizing your world today! ✌️
 
