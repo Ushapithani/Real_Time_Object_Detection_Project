@@ -20,7 +20,7 @@ Watch live object detection straight from your webcam! 🎥
 You can find **all project data, resources, and usage instructions** by visiting the website below.  
 **Explore and use every part of the project directly by clicking this link:**
 
-🔗 [Project Website – All Data & How To Use](https://madhusai-official-09.github.io/Real-Time-Object-Detection-Using-Python-Eduexpose/)
+🔗 [Project Website – All Data & How To Use](https://ushapithani.github.io/Real_Time_Object_Detection_Project/)
 
 ## 👤 About
 
