@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Object Detection with Python</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+      margin: 0;
+      background: #1e293b;
+      color: #e0e7ef;
+      min-height: 100vh;
+    }
+    .container {
+      background: #222c3a;
+      padding: 2em;
+      max-width: 820px;
+      margin: 2.5em auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    }
+    .logo {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1.5em;
+      width: 170px; /* Adjust as needed */
+      max-width: 80%;
+    }
+    h1, h2 {
+      color: #00ffee;
+      letter-spacing: 0.5px;
+    }
+    .colab-btn img {
+      height: 35px;
+      vertical-align: middle;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0,255,238,0.07);
+    }
+    .section {
+      margin-bottom: 2.3em;
+    }
+    code {
+      background: #353c4a;
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #7fffd4;
+      font-size: 1em;
+    }
+    pre { /* Style for code blocks */
+        background: #353c4a;
+        padding: 1em;
+        border-radius: 8px;
+        overflow-x: auto; /* Enable horizontal scrolling for long lines */
+        font-size: 0.9em;
+        line-height: 1.4;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    footer {
+      margin-top: 2.2em;
+      text-align: center;
+      color: #88acd1;
+    }
+    .emoji {
+      font-size: 1.4em;
+      margin-right: 6px;
+    }
+    .resources ul {
+      list-style-type: '🔗 ';
+      padding-left: 1.2em;
+    }
+    a {
+      color: #89fbf7;
+      text-decoration: underline;
+      transition: color 0.18s;
+    }
+    a:hover {
+      color: #00ffee;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <img src="./Eduexpose Logo.png" alt="Eduexpose Logo" class="logo">
+    <h1><span class="emoji">🤖</span>Real-Time Object Detection using Python<span class="emoji">🚀</span></h1>
+    <p>Learn how to build a real-time object detection system with Python using popular libraries like OpenCV and YOLO. Try the code yourself in Google Colab! <span class="emoji">💻📷</span></p>
+
+    <div class="section">
+      <h2><span class="emoji">🏢</span>About Eduexpose & My AI/ML Internship</h2>
+      <p>Hello! I'm **Madhusai**, and I led this real-time object detection project.  This initiative was developed as part of my Project-Based Internship in Artificial Intelligence with <a href="https://www.eduexpose.in/user/cms" target="_blank">Eduexpose</a>.  My passion for AI, Cloud, and Software Development  drove this project, which focused on the practical application of AI and Machine Learning to build robust real-world systems. You can learn more about my professional journey on my <a href="https://www.linkedin.com/in/pitanimadhusayi/" target="_blank">LinkedIn profile</a>.</p>
+      <p>My internship at Eduexpose ran from **June 1, 2025, to July 31, 2025**. It involved a structured work schedule and tasks designed to enhance skills in AI, reflecting the core role within the Artificial Intelligence project. The experience provided valuable insights into project development, execution, and adherence to professional standards, including maintaining confidentiality of proprietary information.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="emoji">🔍</span>How it Works</h2>
+      <ol>
+        <li><span class="emoji">⚙️</span> Set up your Python environment with required libraries (OpenCV, PyTorch, etc.).</li>
+        <li><span class="emoji">🤩</span> Load a pre-trained object detection model (e.g., YOLOv11).</li>
+        <li><span class="emoji">🎥</span> Process camera or video feeds to identify and classify objects.</li>
+        <li><span class="emoji">📦</span> Display results with bounding boxes and labels in real time.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+        <h2><span class="emoji">💡</span>Understanding Real-Time Object Detection</h2>
+        <p>Real-time object detection involves identifying and localizing objects within video streams as they happen, with minimal latency. This technology is at the heart of many modern applications, including:</p>
+        <ul>
+            <li>Autonomous vehicles (identifying pedestrians, other cars, traffic signs)</li>
+            <li>Security and surveillance (detecting suspicious activities)</li>
+            <li>Robotics (enabling robots to interact with their environment)</li>
+            <li>Augmented reality (overlaying digital information onto real-world objects)</li>
+        </ul>
+        <h3>Key Components:</h3>
+        <ul>
+            <li><strong>Deep Learning Models:</strong> Architectures like YOLO (You Only Look Once), SSD (Single Shot MultiBox Detector), and Faster R-CNN are designed for speed and accuracy. YOLO is particularly popular for real-time applications due to its single-pass detection approach.</li>
+            <li><strong>Computer Vision Libraries:</strong> Libraries such as OpenCV are essential for handling video streams, image preprocessing, and drawing annotations (bounding boxes, labels) on the frames.</li>
+            <li><strong>Hardware Acceleration:</strong> For optimal real-time performance, especially with higher resolutions or more complex models, a powerful GPU (Graphics Processing Unit) is often utilized to accelerate computations.</li>
+        </ul>
+        <p>This project specifically leverages **YOLOv11** for its balance of speed and accuracy, and **OpenCV** for camera interaction and display.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="emoji">💻</span>Running the Project in VS Code</h2>
+      <p>Follow these steps to set up and run the real-time object detection project using your laptop's webcam in Visual Studio Code.</p>
+
+      <h3>1. Prerequisites:</h3>
+      <ul>
+        <li><strong>Python 3.8+</strong> installed on your system.</li>
+        <li><strong>Visual Studio Code</strong> installed.</li>
+        <li>An **active internet connection** for initial model download.</li>
+      </ul>
+
+      <h3>2. Environment Setup:</h3>
+      <p>It's crucial to use a virtual environment to manage project dependencies. Open VS Code, navigate to your desired project folder, and open a new terminal (<code>Ctrl+Shift+`</code>).</p>
+      <p>Create and activate a virtual environment:</p>
+      <pre><code># Create virtual environment
+python -m venv venv
+
+# Activate on Windows (PowerShell)
+.\venv\Scripts\Activate.ps1
+
+# Activate on Windows (Command Prompt)
+venv\Scripts\activate.bat
+
+# Activate on macOS/Linux
+source venv/bin/activate
+</code></pre>
+      <p>Once activated (you'll see <code>(venv)</code> in your terminal prompt), install the required libraries:</p>
+      <pre><code># Install PyTorch (CPU version - suitable for most laptops)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+# Install OpenCV and other utilities
+pip install opencv-python numpy matplotlib seaborn
+
+# Install Ultralytics (includes YOLOv11 support)
+pip install ultralytics
+</code></pre>
+      <p><strong>Note:</strong> If you have an NVIDIA GPU, visit <a href="https://pytorch.org/get-started/locally/" target="_blank">PyTorch's website</a> for the CUDA-enabled installation command for faster inference.</p>
+
+      <h3>3. Create the Python Script:</h3>
+      <p>3.1 In VS Code, create a new file named <code>yolo_realtime_webcam.py</code> and paste the following code for Real-Time Object Detection Using Webcam📷:</p>
+      <p></p>
+      <pre><code>import cv2
+from ultralytics import YOLO
+
+# Print OpenCV version
+print(f"OpenCV version: {cv2.__version__}")
+
+# Load the latest YOLO11 model (choose model size: n, s, m, l, x)
+model = YOLO("yolo11s.pt")  # Alternatives: 'yolo11n.pt', 'yolo11m.pt', etc.
+
+# Open the laptop webcam
+cap = cv2.VideoCapture(0)
+if not cap.isOpened():
+    print("Error: Could not access the webcam.")
+    exit()
+
+print("Webcam opened successfully. Press 'q' to quit the detection window.")
+
+try:
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            print("Failed to grab frame.")
+            break
+
+        # Run detection; YOLO expects BGR frames (default for OpenCV)
+        results = model.predict(source=frame, show=False, stream=False)
+
+        # Overlay boxes; results[0].plot() returns BGR image
+        annotated_frame = results[0].plot()
+
+        # Display result
+        cv2.imshow("YOLO11 Real-time Detection", annotated_frame)
+
+        # Exit on 'q'
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+finally:
+    cap.release()
+    cv2.destroyAllWindows()
+    print("Webcam released and windows closed.")
+
+```</pre>
+        <h3>3.2 In VS Code, create a new file named <code>traffic_analyzer.py</code> and paste the following code for Real-Time Object Detection Using Video File🎥:</h3>
+        <pre><code>import cv2
+from ultralytics import YOLO
+
+def traffic_analysis_yolo_bytetrack(video_path, output_path="output_traffic.mp4"):
+    model = YOLO("yolo11n.pt")
+
+    # Open the video file
+    cap = cv2.VideoCapture(video_path)
+    if not cap.isOpened():
+        print(f"Error: Could not open video file {video_path}")
+        return
+
+    # Get video properties
+    frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    fps = int(cap.get(cv2.CAP_PROP_FPS))
+
+    # Define the codec and create VideoWriter object
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v') # You can use 'XVID' or 'MJPG'
+    out = cv2.VideoWriter(output_path, fourcc, fps, (frame_width, frame_height))
+
+    print("Starting vehicle detection and tracking...")
+
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            print("End of video or error reading frame.")
+            break
+            
+        results = model.track(frame, persist=True, tracker="bytetrack.yaml", conf=0.3, iou=0.5, show=False)
+
+        # Process results
+        if results and results[0].boxes.id is not None:
+            # Get annotated frame with bounding boxes and track IDs
+            annotated_frame = results[0].plot()
+
+            # Display the frame
+            cv2.imshow("Traffic Analysis", annotated_frame)
+            
+            out.write(annotated_frame)
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Release resources
+    cap.release()
+    out.release()
+    cv2.destroyAllWindows()
+    print(f"Traffic analysis completed. Output saved to {output_path}")
+
+if __name__ == "__main__":
+    # Replace with your video file path
+    input_video = "road_traffic.mp4" 
+    
+    traffic_analysis_yolo_bytetrack(input_video)
+  ```
+</pre>
+
+      <h2>4. Run the Project:</h2>
+      <p>4.1 Save your <code>yolo_realtime_webcam.py</code> file. With your virtual environment still active in the VS Code terminal, run:</p>
+      <pre><code>python yolo_realtime_webcam.py
+</code></pre>
+      <p>4.2 Save your <code>traffic_analyzer.py</code> file. With your virtual environment still active in the VS Code terminal, run:</p>
+      <pre><code>python traffic_analyzer.py
+</code></pre>
+      <p>A new window will appear showing your webcam feed with real-time object detections. To exit, click on the detection window and press the <code>q</code> key.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="emoji">📝</span>Run Code in Google Colab</h2>
+      <p>Click the badge below to open and run the object detection code in Google Colab! <span class="emoji">👉</span></p>
+      <a class="colab-btn" href="https://colab.google/notebooks/" target="_blank">
+        <img src="[https://colab.research.google.com/assets/colab-badge.svg](https://colab.research.google.com/assets/colab-badge.svg)" alt="Open in Colab"/>
+      </a>
+      <p style="font-size: 0.95em; color: #abbccd;">(Replace <code>your-notebook-url</code> with your Colab notebook's shareable link if you create a new one.)</p>
+
+      <h3>Colab Code Snippet:</h3>
+      <p>Here's the typical setup and inference code you'd run in a Google Colab notebook cell for YOLOv11 for Real-Time Object Detection using Image:</p>
+      <pre><code># Step 1: Install the Ultralytics package (YOLO11 is supported in ultralytics >= 8.0.x)
+!pip install ultralytics --upgrade --quiet
+
+# Step 2: Import the library
+from ultralytics import YOLO
+
+# Step 3: Load a YOLOv11 pretrained model (various sizes available, e.g., 'yolo11n.pt', 'yolo11s.pt', 'yolo11m.pt', 'yolo11x.pt')
+model = YOLO('yolo11s.pt')
+
+# Step 4: Inference on an image
+results = model('path/to/image.jpg')
+
+# Step 5: Show results (in a notebook or Python script)
+results.show()          # Visualize detection output
+results.save()          # Save results images to 'runs/detect/predict'
+results.print()         # Print results to console
+</code></pre>
+      <p style="font-size: 0.9em; color: #abbccd;"><strong>Note:</strong> In Colab, <code>results.show()</code> typically displays the image directly within the notebook output, and webcam access requires specific Colab code (like <code>cv2_imshow</code> and JavaScript integration) which is more complex than a simple Python script.</p>
+    </div>
+
+    <div class="section resources">
+      <h2><span class="emoji">📚</span>Resources &amp; Examples</h2>
+      <ul>
+        <li><a href="https://github.com/ultralytics/yolov5" target="_blank">YOLOv11 GitHub Repository</a></li>
+        <li><a href="https://github.com/opencv/opencv" target="_blank">OpenCV Website</a></li>
+        <li><a href="https://docs.pytorch.org/docs/stable/index.html" target="_blank">PyTorch Documentation</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      <hr>
+      <p style="font-size:1.05em;">🌟 Website by <b>Madhusai</b> 🌟</p>
+      <p style="font-size:0.95em;">&copy; 2025 Real-Time Object Detection Project. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
