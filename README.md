@@ -24,9 +24,9 @@ You can find **all project data, resources, and usage instructions** by visiting
 
 ## 👤 About
 
-**Name:**  Usha Pithani (B.Tech) 
-**Email:** pithaniusha73@gmail.com
-**LinkedIn:** [https://www.linkedin.com/in/pitanimadhusayi/](https://www.linkedin.com/in/pitanimadhusayi/)
+**Name:**  Usha Pithani (B.Tech) \n
+**Email:** pithaniusha73@gmail.com\n
+**LinkedIn:** 
 
 Give it a try and start recognizing your world today! ✌️
 
